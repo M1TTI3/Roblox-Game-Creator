@@ -1,2 +1,82 @@
-<link rel="stylesheet" href="style.css"> 
-<h1>Roblox Game Creator</h1> 
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prompt → Roblox Tycoon Builder</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="hero">
+        <p class="eyebrow">MVP · Tycoon/Simulator Generator</p>
+        <h1>Build your Roblox Tycoon with AI</h1>
+        <p class="subtitle">
+          Describe your idea and get a complete beginner-ready package: design,
+          systems, Luau scripts, UI plan, and a step-by-step Roblox Studio setup guide.
+        </p>
+      </header>
+
+      <section class="panel" id="input-panel">
+        <label for="prompt" class="label">Describe your game…</label>
+        <textarea
+          id="prompt"
+          rows="5"
+          placeholder="Example: Make a pizza tycoon with upgrades, workers, and VIP gamepass"
+        ></textarea>
+        <button id="generate-btn" class="primary">Generate Game</button>
+      </section>
+
+      <section class="panel hidden" id="progress-panel" aria-live="polite">
+        <h2>Generating your tycoon package...</h2>
+        <ol class="progress-list">
+          <li data-step="design">Designing game...</li>
+          <li data-step="systems">Creating systems...</li>
+          <li data-step="scripts">Writing scripts...</li>
+          <li data-step="ui">Building UI...</li>
+        </ol>
+      </section>
+
+      <section class="panel hidden" id="results-panel">
+        <h2>Game Package</h2>
+
+        <article class="result-card">
+          <h3>A. Game Overview</h3>
+          <div id="overview"></div>
+        </article>
+
+        <article class="result-card">
+          <h3>B. Systems</h3>
+          <ul id="systems"></ul>
+        </article>
+
+        <article class="result-card">
+          <h3>C. Scripts</h3>
+          <div id="scripts" class="script-grid"></div>
+        </article>
+
+        <article class="result-card">
+          <h3>D. UI Plan</h3>
+          <ul id="ui-plan"></ul>
+        </article>
+
+        <article class="result-card">
+          <h3>E. Setup Guide (Roblox Studio)</h3>
+          <ol id="setup-guide"></ol>
+        </article>
+      </section>
+    </main>
+
+    <template id="script-template">
+      <section class="script-card">
+        <div class="script-header">
+          <h4></h4>
+          <button class="copy-btn">Copy</button>
+        </div>
+        <pre><code></code></pre>
+      </section>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>
