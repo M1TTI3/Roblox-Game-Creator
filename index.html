@@ -1,2 +1,112 @@
-<link rel="stylesheet" href="style.css"> 
-<h1>Roblox Game Creator</h1> 
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Roblox Tycoon Builder Pro</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="hero">
+        <p class="eyebrow">Tycoon Studio · Production Builder</p>
+        <h1>Prompt → Roblox Tycoon Builder</h1>
+        <p class="subtitle">
+          Turn a one-line idea into a complete, buildable Roblox Tycoon package with architecture,
+          scripts, UI schema, economy balancing, and a beginner-safe Studio setup plan.
+        </p>
+      </header>
+
+      <section class="panel composer" id="input-panel">
+        <div class="stack">
+          <label for="prompt" class="label">Describe your game</label>
+          <textarea
+            id="prompt"
+            rows="5"
+            placeholder="Example: Make a pizza tycoon with conveyor upgrades, worker NPCs, daily rewards, and VIP pass perks"
+          ></textarea>
+
+          <div class="chip-row" id="preset-chips">
+            <button class="chip" data-prompt="Make a pizza tycoon with upgrades, workers, and VIP gamepass">Pizza Tycoon</button>
+            <button class="chip" data-prompt="Make a car factory simulator tycoon with rebirth and prestige perks">Car Factory</button>
+            <button class="chip" data-prompt="Make a candy tycoon with quests, pets, and a premium shop">Candy Tycoon</button>
+            <button class="chip" data-prompt="Make a mining simulator tycoon with workers and auto-collect gamepass">Mining Tycoon</button>
+          </div>
+        </div>
+
+        <aside class="options">
+          <h2>Generation Options</h2>
+          <label>Difficulty
+            <select id="difficulty">
+              <option value="beginner">Beginner-friendly</option>
+              <option value="standard" selected>Standard</option>
+              <option value="advanced">Advanced systems</option>
+            </select>
+          </label>
+
+          <label>Session Target
+            <select id="session-length">
+              <option value="short">8-12 mins</option>
+              <option value="medium" selected>20-30 mins</option>
+              <option value="long">40-60 mins</option>
+            </select>
+          </label>
+
+          <label>Focus
+            <select id="focus">
+              <option value="economy" selected>Economy balance</option>
+              <option value="retention">Retention loop</option>
+              <option value="monetization">Monetization depth</option>
+            </select>
+          </label>
+
+          <div class="toggle-grid">
+            <label><input type="checkbox" id="toggle-rebirth" checked /> Rebirth</label>
+            <label><input type="checkbox" id="toggle-workers" checked /> Workers</label>
+            <label><input type="checkbox" id="toggle-quests" checked /> Quests</label>
+            <label><input type="checkbox" id="toggle-passes" checked /> Gamepasses</label>
+          </div>
+
+          <button id="generate-btn" class="primary">Generate Pro Package</button>
+        </aside>
+      </section>
+
+      <section class="panel hidden" id="progress-panel" aria-live="polite">
+        <h2>Building your package...</h2>
+        <ol class="progress-list">
+          <li data-step="design">Step 1: Design architecture</li>
+          <li data-step="systems">Step 2: Map systems and objects</li>
+          <li data-step="scripts">Step 3: Write production scripts</li>
+          <li data-step="ui">Step 4: Draft UI and economy plan</li>
+          <li data-step="guide">Step 5: Build Studio implementation guide</li>
+        </ol>
+      </section>
+
+      <section class="panel hidden" id="results-panel">
+        <div class="result-head">
+          <h2 id="game-title">Game Package</h2>
+          <div class="result-actions">
+            <button id="copy-all" class="secondary">Copy All Scripts</button>
+            <button id="download-json" class="secondary">Download JSON</button>
+            <button id="download-guide" class="secondary">Download Setup Guide</button>
+          </div>
+        </div>
+
+        <nav class="tabs" id="tabs"></nav>
+        <section class="tab-body" id="tab-content"></section>
+      </section>
+    </main>
+
+    <template id="script-template">
+      <section class="script-card">
+        <div class="script-header">
+          <h4></h4>
+          <button class="copy-btn">Copy</button>
+        </div>
+        <pre><code></code></pre>
+      </section>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>
